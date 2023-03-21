@@ -11,13 +11,15 @@ import java.util.Date;
 @Component
 public class JWTHandler {
     private final String type = "Bearer";
+    static final long TOKEN_EXPIRED_TIME = 1000L;
 
-    public String CreateToken(String encodedKey, String subject, Long maxAgeSeconds) {
+    public String createToken(String encodedKey, String subject, Long maxAgeSeconds) {
         Date now = new Date();
+
         return type + Jwts.builder()
                 .setSubject(subject)
                 .setIssuedAt(now)
-                .setExpiration(new Date(now.getTime() + maxAgeSeconds * 1000L))
+                .setExpiration(new Date(now.getTime() + maxAgeSeconds * TOKEN_EXPIRED_TIME))
                 .signWith(SignatureAlgorithm.HS256, encodedKey)
                 .compact();
     }
@@ -31,7 +33,7 @@ public class JWTHandler {
             parse(encodedKey, token);
             return true;
         } catch (JwtException e) {
-            log.error("토큰 오류 발생" + e.getMessage());
+            log.error("토큰 오류 발생: " + e.getMessage());
             return false;
         }
     }
