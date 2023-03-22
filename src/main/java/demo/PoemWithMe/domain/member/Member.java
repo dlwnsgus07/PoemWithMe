@@ -16,5 +16,6 @@ public class Member {
     private String email;
     private String nickName;
     private List<Poem> likePoemList;
+    private ROLE role;
     private List<Comment> comments;
 }
