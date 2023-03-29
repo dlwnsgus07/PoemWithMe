@@ -16,12 +16,6 @@ import java.util.List;
 public class MemberController {
     private final MemberService memberService;
 
-    @GetMapping("/all")
-    public List<Member> getMembers(){
-        log.info("user call findAll");
-        return memberService.findAll();
-    }
-
     @GetMapping("/find/{id}")
     public Member getMemberById(@PathVariable Long id){
         return memberService.findById(id);

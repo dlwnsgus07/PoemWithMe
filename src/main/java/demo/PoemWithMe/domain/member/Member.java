@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Data
 @AllArgsConstructor
 public class Member {
+    private Long id;
     private String name;
     private String password;
     @Email
@@ -17,6 +18,16 @@ public class Member {
 //    private List<Poem> likePoemList;
 //    private List<Comment> comments;
 
+
+//    public Member(String name, String password, String email, String nickName, ROLE role) {
+//        ApplicationContext ac = new AnnotationConfigApplicationContext();
+//        this.name = name;
+//        encodePassword(ac.getBean(PasswordEncoder.class));
+//        this.email = email;
+//        this.nickName = nickName;
+//        this.role = role;
+//    }
+
     public void encodePassword(PasswordEncoder passwordEncoder) {
         this.password = passwordEncoder.encode(password);
     }
@@ -25,7 +36,7 @@ public class Member {
         this.password = passwordEncoder.encode(password);
     }
 
-    public void updateNickName(String nickName){
+    public void updateNickName(String nickName) {
         this.nickName = nickName;
     }
 }

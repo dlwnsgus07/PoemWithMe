@@ -5,16 +5,18 @@ import demo.PoemWithMe.domain.member.repository.MemberRepositoryImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class MemberService {
     private final MemberRepositoryImpl memberRepositoryImpl;
-    public List<Member> findAll(){
-         return memberRepositoryImpl.findAll();
-    }
     public Member findById(Long id){
-        return memberRepositoryImpl.findById(id);
+        Optional<Member> member = memberRepositoryImpl.findById(id);
+        if (member.isEmpty()){
+            throw new NoSuchElementException("존재하지 않는 사용자 입니다.");
+        }
+        return member.get();
     }
 }
