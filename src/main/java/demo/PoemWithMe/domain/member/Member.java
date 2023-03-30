@@ -18,16 +18,6 @@ public class Member {
 //    private List<Poem> likePoemList;
 //    private List<Comment> comments;
 
-
-//    public Member(String name, String password, String email, String nickName, ROLE role) {
-//        ApplicationContext ac = new AnnotationConfigApplicationContext();
-//        this.name = name;
-//        encodePassword(ac.getBean(PasswordEncoder.class));
-//        this.email = email;
-//        this.nickName = nickName;
-//        this.role = role;
-//    }
-
     public void encodePassword(PasswordEncoder passwordEncoder) {
         this.password = passwordEncoder.encode(password);
     }
