@@ -25,9 +25,12 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-websocket'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.0'
 	implementation 'org.springframework.session:spring-session-core'
+
+	//디비 로깅용
+	implementation group: 'org.bgee.log4jdbc-log4j2', name:'log4jdbc-log4j2-jdbc4.1', version: '1.16'
 	implementation 'io.jsonwebtoken:jjwt:0.9.1'
 	implementation 'javax.xml.bind:jaxb-api:2.1'
-	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.26'
+	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
 	runtimeOnly 'mysql:mysql-connector-java'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
