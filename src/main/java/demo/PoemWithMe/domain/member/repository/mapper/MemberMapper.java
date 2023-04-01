@@ -7,11 +7,12 @@ import java.util.List;
 
 @Mapper
 public interface MemberMapper {
-    @Select("INSERT INTO MEMBER " +
-            "(name, password, nickname, email, role " +
-            "VALUES(#{name}, #{password}, #{nickName}" +
-            "#{email}, #{memberRole})")
-    int save(Member member);
+    @Insert("INSERT INTO MEMBER " +
+            "(name, password, nickname, email, role) " +
+            "VALUES(#{member.name}, #{member.password}, #{member.nickName}," +
+            "#{member.email}, #{member.role})")
+    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
+    void save(@Param("member") Member member);
 
     @Select("SELECT * FROM MEMBER")
     List<Member> findAll();
