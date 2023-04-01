@@ -16,7 +16,8 @@ public class MemberServiceImpl implements MemberService{
     private final PasswordEncoder passwordEncoder;
 
     @Override
-    public int save(Member member) {
+    public Long save(Member member) {
+        member.encodePassword(passwordEncoder);
         return memberRepository.save(member);
     }
 

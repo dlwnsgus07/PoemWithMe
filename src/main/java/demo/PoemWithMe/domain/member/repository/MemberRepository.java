@@ -10,7 +10,7 @@ public interface MemberRepository {
     //회원 가입
     //회원 정보 변경
     //회원 가입
-    public int save(Member member);
+    public Long save(Member member);
 
     //회원 삭제
     public void deleteById(Long id);

@@ -3,17 +3,25 @@ package demo.PoemWithMe.domain.member.repository;
 import demo.PoemWithMe.domain.member.Member;
 import demo.PoemWithMe.domain.member.repository.mapper.MemberMapper;
 import lombok.AllArgsConstructor;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
 @AllArgsConstructor
-public class MemberRepositoryImpl implements MemberRepository{
+public class MemberRepositoryImpl implements MemberRepository {
     private MemberMapper mapper;
+
     @Override
-    public int save(Member member) {
-        return mapper.save(member);
+    public Long save(Member member) {
+        try {
+            mapper.save(member);
+        }
+        catch (DuplicateKeyException e){
+            throw new IllegalStateException("중복된 회원정보를 입력하셨습니다.");
+        }
+        return member.getId();
     }
 
     @Override

@@ -5,7 +5,7 @@ import demo.PoemWithMe.domain.member.Member;
 import java.util.Optional;
 
 public interface MemberService {
-    public int save(Member member);
+    public Long save(Member member);
 
     public void deleteById(Long id);
 
