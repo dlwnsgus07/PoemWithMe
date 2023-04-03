@@ -2,8 +2,6 @@ package demo.PoemWithMe.domain.member.service;
 
 import demo.PoemWithMe.domain.member.Member;
 
-import java.util.Optional;
-
 public interface MemberService {
     public Long save(Member member);
 
@@ -15,5 +13,5 @@ public interface MemberService {
 
     public void updatePasswordAndNickName(Long id, String password, String nickName);
 
-    public Optional<Member> findById(Long id);
+    public Member findById(Long id);
 }

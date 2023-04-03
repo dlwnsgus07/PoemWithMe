@@ -1,11 +1,12 @@
 package demo.PoemWithMe.domain.member.repository;
 
 import demo.PoemWithMe.domain.member.Member;
-import demo.PoemWithMe.domain.member.repository.mapper.MemberMapper;
+import demo.PoemWithMe.global.mapper.MemberMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Repository;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Repository
@@ -41,11 +42,16 @@ public class MemberRepositoryImpl implements MemberRepository {
 
     @Override
     public void updatePasswordAndNickName(Member member) {
-
+        mapper.updatePasswordAndNickName(member);
     }
 
     @Override
-    public Optional<Member> findById(Long id) {
-        return Optional.ofNullable(mapper.findById(id));
+    public Member findById(Long id) {
+
+        Optional<Member> result = Optional.ofNullable(mapper.findById(id));
+        if (result.isEmpty()) {
+            throw new NoSuchElementException("존재하지 않는 사용자 입니다.");
+        }
+        return result.get();
     }
 }

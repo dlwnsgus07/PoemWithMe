@@ -2,8 +2,6 @@ package demo.PoemWithMe.domain.member.repository;
 
 import demo.PoemWithMe.domain.member.Member;
 
-import java.util.Optional;
-
 public interface MemberRepository {
     //회원 조회(아이디를 통해)
     //회원 삭제(회원 삭제)
@@ -19,5 +17,5 @@ public interface MemberRepository {
     public void updateNickName(Member member);
     public void updatePasswordAndNickName(Member member);
 
-    public Optional<Member> findById(Long id);
+    public Member findById(Long id);
 }

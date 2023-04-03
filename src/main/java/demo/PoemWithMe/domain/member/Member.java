@@ -25,6 +25,15 @@ public class Member {
         this.role = role;
     }
 
+    public Member(Long id, String name, String password, String email, String nickName, ROLE role) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.nickName = nickName;
+        this.role = role;
+    }
+
     public void encodePassword(PasswordEncoder passwordEncoder) {
         this.password = passwordEncoder.encode(password);
     }
@@ -36,7 +45,7 @@ public class Member {
     public void updateNickName(String nickName) {
         this.nickName = nickName;
     }
-    public int getRole(){
-        return role.getKey();
+    public ROLE getRole(){
+        return role;
     }
 }
