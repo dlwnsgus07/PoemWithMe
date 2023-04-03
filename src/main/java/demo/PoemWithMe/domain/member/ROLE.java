@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum ROLE {
-    WRITER("WRITER", 1), PUBLISHER("PUBLISHER", 2), VIP("VIP", 3), ADMIN("ADMIN", 4);
-    private final String title;
+    WRITER(1, "WRITER"), PUBLISHER(2, "PUBLISHER"), VIP(3, "VIP"), ADMIN(4, "ADMIN");
     private final int key;
+    private final String title;
 }
