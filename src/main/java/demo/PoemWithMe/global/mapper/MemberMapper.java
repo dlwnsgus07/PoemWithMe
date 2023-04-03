@@ -1,4 +1,4 @@
-package demo.PoemWithMe.domain.member.repository.mapper;
+package demo.PoemWithMe.global.mapper;
 
 import demo.PoemWithMe.domain.member.Member;
 import org.apache.ibatis.annotations.*;
@@ -16,8 +16,8 @@ public interface MemberMapper {
 
     @Select("SELECT * FROM MEMBER")
     List<Member> findAll();
-
-    @Select("SELECT * FROM MEMBER WHERE name = #{id}")
+//    name, password, nickname, email, role
+    @Select("SELECT id, name, password, nickname, email, role FROM MEMBER WHERE id = #{id}")
     Member findById(@Param("id") Long id);
 
     @Delete("DELETE FROM MEMBER WHERE id = #{id}")

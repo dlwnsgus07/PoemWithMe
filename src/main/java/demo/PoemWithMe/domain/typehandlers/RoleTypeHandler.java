@@ -1,10 +1,9 @@
-package demo.PoemWithMe.domain.member.repository.mapper;
+package demo.PoemWithMe.domain.typehandlers;
 
 import demo.PoemWithMe.domain.member.ROLE;
 import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.MappedTypes;
 import org.apache.ibatis.type.TypeHandler;
-
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,7 +13,7 @@ import java.sql.SQLException;
 public class RoleTypeHandler implements TypeHandler<ROLE> {
     @Override
     public void setParameter(PreparedStatement ps, int i, ROLE parameter, JdbcType jdbcType) throws SQLException {
-        ps.setString(i, parameter.getTitle());
+        ps.setInt(i, parameter.getKey());
     }
 
     @Override
