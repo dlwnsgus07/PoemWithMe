@@ -25,18 +25,6 @@ public class SecurityConfiguration {
         return http.build();
     }
 
-
-//    @Bean
-//    public SecurityFilterChain filterChainMVC(HttpSecurity http) throws Exception{
-//        http.authorizeHttpRequests((authorizationManagerRequestMatcherRegistry ->
-//                        authorizationManagerRequestMatcherRegistry
-//                                .anyRequest()
-//                                .authenticated()))
-//                .httpBasic(Customizer.withDefaults());
-//        return http.build();
-//    }
-
-
     @Bean
     public PasswordEncoder passwordEncoder(){
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();

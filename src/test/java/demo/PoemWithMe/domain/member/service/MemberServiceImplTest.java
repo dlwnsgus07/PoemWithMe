@@ -1,7 +1,7 @@
 package demo.PoemWithMe.domain.member.service;
 
 import demo.PoemWithMe.domain.member.Member;
-import demo.PoemWithMe.domain.member.ROLE;
+import demo.PoemWithMe.domain.member.Role;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,7 +23,7 @@ class MemberServiceImplTest {
 
     @BeforeEach
     void makeMember() {
-        this.member = new Member("junHyeon1", "rdwg", "dlwnsgus08@naver.com", "John1", ROLE.ADMIN);
+        this.member = new Member("junHyeon1", "rdwg", "dlwnsgus08@naver.com", "John1", Role.ADMIN);
     }
 
     @AfterEach
@@ -44,7 +44,7 @@ class MemberServiceImplTest {
     @Test
     void saveDuplicate() {
         //given
-        Member memberDup = new Member("junHyeon", "rdwg", "dlwnsgus08@naver.com", "John1", ROLE.ADMIN);
+        Member memberDup = new Member("junHyeon", "rdwg", "dlwnsgus08@naver.com", "John1", Role.ADMIN);
         //when
         Long id = memberService.save(member);
         //then
@@ -61,7 +61,7 @@ class MemberServiceImplTest {
     void updatePassword() {
         Long id = memberService.save(member);
         String password = member.getPassword();
-        memberService.updatePassword(id, "anotherPass");
+        memberService.updatePassword(id, "rdwg");
         Member findMember = memberService.findById(id);
         assertThat(password).isNotEqualTo(findMember.getPassword());
     }

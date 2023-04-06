@@ -4,6 +4,7 @@ import demo.PoemWithMe.domain.member.Member;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Mapper
 public interface MemberMapper {
@@ -16,9 +17,10 @@ public interface MemberMapper {
 
     @Select("SELECT * FROM MEMBER")
     List<Member> findAll();
-//    name, password, nickname, email, role
+
+    //    name, password, nickname, email, role
     @Select("SELECT id, name, password, nickname, email, role FROM MEMBER WHERE id = #{id}")
-    Member findById(@Param("id") Long id);
+    Optional<Member> findById(@Param("id") Long id);
 
     @Delete("DELETE FROM MEMBER WHERE id = #{id}")
     void deleteById(@Param("id") Long id);
@@ -32,4 +34,6 @@ public interface MemberMapper {
     @Update("UPDATE MEMBER SET NICKNAME = #{nickName} where id = #{id}")
     void updateNickName(Member member);
 
+    @Select("SELECT id, name, password, nickname, email, role FROM MEMBER WHERE NAME=${name}")
+    Member findByName(String name);
 }

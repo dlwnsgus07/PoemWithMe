@@ -12,12 +12,12 @@ public class Member {
     @Email
     private String email;
     private String nickName;
-    private ROLE role;
+    private Role role;
 //    private List<Poem> likePoemList;
 //    private List<Comment> comments;
 
 
-    public Member(String name, String password, String email, String nickName, ROLE role) {
+    public Member(String name, String password, String email, String nickName, Role role) {
         this.name = name;
         this.password = password;
         this.email = email;
@@ -25,7 +25,7 @@ public class Member {
         this.role = role;
     }
 
-    public Member(Long id, String name, String password, String email, String nickName, ROLE role) {
+    public Member(Long id, String name, String password, String email, String nickName, Role role) {
         this.id = id;
         this.name = name;
         this.password = password;
@@ -45,7 +45,7 @@ public class Member {
     public void updateNickName(String nickName) {
         this.nickName = nickName;
     }
-    public ROLE getRole(){
+    public Role getRole(){
         return role;
     }
 }

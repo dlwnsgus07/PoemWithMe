@@ -48,10 +48,15 @@ public class MemberRepositoryImpl implements MemberRepository {
     @Override
     public Member findById(Long id) {
 
-        Optional<Member> result = Optional.ofNullable(mapper.findById(id));
+        Optional<Member> result = mapper.findById(id);
         if (result.isEmpty()) {
             throw new NoSuchElementException("존재하지 않는 사용자 입니다.");
         }
         return result.get();
+    }
+
+    @Override
+    public Optional<Member> findByName(String name) {
+        return mapper.findById(Long.parseLong(name));
     }
 }

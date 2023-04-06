@@ -1,6 +1,6 @@
 package demo.PoemWithMe.global.datasource;
 
-import demo.PoemWithMe.domain.typehandlers.RoleTypeHandler;
+import demo.PoemWithMe.global.typehandlers.RoleTypeHandler;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
