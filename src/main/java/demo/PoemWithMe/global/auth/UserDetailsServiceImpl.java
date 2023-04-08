@@ -1,4 +1,4 @@
-package demo.PoemWithMe.global;
+package demo.PoemWithMe.global.auth;
 
 import demo.PoemWithMe.domain.member.Member;
 import demo.PoemWithMe.domain.member.repository.MemberRepository;
