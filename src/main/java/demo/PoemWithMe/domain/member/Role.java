@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+
 import java.util.Arrays;
 
 @Getter
@@ -13,9 +14,8 @@ public enum Role {
     private final int key;
     @JsonValue
     private final String title;
-
     @JsonCreator
     public static Role titleToRole(String role) {
-        return Arrays.stream(Role.values()).filter((r) -> r.getTitle().equals(role)).findFirst().orElseThrow(() -> new IllegalArgumentException("허용되지 않는 역할입니다."));
+        return Arrays.stream(Role.values()).filter((r) -> r.getTitle().equals(role.toUpperCase())).findFirst().orElseThrow(() -> new IllegalArgumentException("허용되지 않는 역할입니다."));
     }
 }
