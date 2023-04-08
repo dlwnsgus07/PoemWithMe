@@ -1,10 +1,13 @@
 package demo.PoemWithMe.domain.member;
 
+import demo.PoemWithMe.domain.member.dto.MemberSignupRequestDto;
 import jakarta.validation.constraints.Email;
-import lombok.Data;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-@Data
+@Getter
+@RequiredArgsConstructor
 public class Member {
     private Long id;
     private String name;
@@ -13,16 +16,14 @@ public class Member {
     private String email;
     private String nickName;
     private Role role;
-//    private List<Poem> likePoemList;
-//    private List<Comment> comments;
 
 
-    public Member(String name, String password, String email, String nickName, Role role) {
-        this.name = name;
-        this.password = password;
-        this.email = email;
-        this.nickName = nickName;
-        this.role = role;
+    public Member(MemberSignupRequestDto memberSignupRequestDto) {
+        this.name = memberSignupRequestDto.getName();
+        this.password = memberSignupRequestDto.getPassword();
+        this.email = memberSignupRequestDto.getEmail();
+        this.nickName = memberSignupRequestDto.getNickName();
+        this.role = memberSignupRequestDto.getRole();
     }
 
     public Member(Long id, String name, String password, String email, String nickName, Role role) {

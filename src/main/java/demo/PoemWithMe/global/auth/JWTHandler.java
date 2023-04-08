@@ -1,4 +1,4 @@
-package demo.PoemWithMe.auth;
+package demo.PoemWithMe.global.auth;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.SignatureAlgorithm;

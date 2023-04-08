@@ -1,5 +1,6 @@
 package demo.PoemWithMe.auth;
 
+import demo.PoemWithMe.global.auth.JWTHandler;
 import org.junit.jupiter.api.Test;
 
 import java.util.Base64;
