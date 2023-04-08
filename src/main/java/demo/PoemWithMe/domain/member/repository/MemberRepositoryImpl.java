@@ -57,6 +57,6 @@ public class MemberRepositoryImpl implements MemberRepository {
 
     @Override
     public Optional<Member> findByName(String name) {
-        return mapper.findById(Long.parseLong(name));
+        return mapper.findByName(name);
     }
 }

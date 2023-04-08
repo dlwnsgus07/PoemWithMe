@@ -34,6 +34,6 @@ public interface MemberMapper {
     @Update("UPDATE MEMBER SET NICKNAME = #{nickName} where id = #{id}")
     void updateNickName(Member member);
 
-    @Select("SELECT id, name, password, nickname, email, role FROM MEMBER WHERE NAME=${name}")
-    Member findByName(String name);
+    @Select("SELECT id, name, password, nickname, email, role FROM MEMBER WHERE NAME=#{name}")
+    Optional<Member> findByName(String name);
 }
