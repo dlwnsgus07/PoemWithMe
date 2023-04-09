@@ -8,19 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @Slf4j
 @RestController
 @RequiredArgsConstructor
 public class MemberController {
     private final MemberService memberService;
-
-    @GetMapping("/all")
-    public List<Member> getMembers(){
-        log.info("user call findAll");
-        return memberService.findAll();
-    }
 
     @GetMapping("/find/{id}")
     public Member getMemberById(@PathVariable Long id){

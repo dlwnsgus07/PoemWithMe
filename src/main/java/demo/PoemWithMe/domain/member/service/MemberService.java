@@ -1,20 +1,17 @@
 package demo.PoemWithMe.domain.member.service;
 
 import demo.PoemWithMe.domain.member.Member;
-import demo.PoemWithMe.domain.member.repository.MemberRepositoryImpl;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
-import java.util.List;
+public interface MemberService {
+    public Long save(Member member);
 
-@Service
-@RequiredArgsConstructor
-public class MemberService {
-    private final MemberRepositoryImpl memberRepositoryImpl;
-    public List<Member> findAll(){
-         return memberRepositoryImpl.findAll();
-    }
-    public Member findById(Long id){
-        return memberRepositoryImpl.findById(id);
-    }
+    public void deleteById(Long id);
+
+    public void updatePassword(Long id, String password);
+
+    public void updateNickName(Long id, String nickName);
+
+    public void updatePasswordAndNickName(Long id, String password, String nickName);
+
+    public Member findById(Long id);
 }
